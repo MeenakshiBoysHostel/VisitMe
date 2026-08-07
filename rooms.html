@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Premium hostel rooms at Minakshi Boys Hostel with AC and non-AC options for 2, 3 and 4 sharing students.">
+    <title>Minakshi Boys Hostel | Rooms</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/global-header.css">
+    <link rel="stylesheet" href="assets/css/global-footer.css">
+    <link rel="stylesheet" href="assets/css/rooms.css">
+    <link rel="shortcut icon" href="assets/img/logo.png" type="image/png">
+
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    </script>
+</head>
+<body class="scroll-bar rooms-page">
+    <div id="loader">
+        <img src="assets/img/logo.png" alt="Minakshi Boys Hostel Logo" class="loader-logo">
+    </div>
+
+    <header id="main-header" class="solid-header">
+        <div class="header-container">
+            <nav class="header-nav-bar">
+                <div class="header-nav-logo">
+                    <a href="index.html" class="logo-link" id="logo-link">
+                        <img src="assets/img/logo.png" alt="Minakshi Boys Hostel" class="navbar-logo">
+                    </a>
+                </div>
+                <ul class="header-nav-lists">
+                    <li class="header-nav-list"><a class="header-nav-link nav-item" href="index.html">Home</a></li>
+                    <li class="header-nav-list"><a class="header-nav-link nav-item" href="mess.html">Menu</a></li>
+                    <li class="header-nav-list"><a class="header-nav-link nav-item header-active" href="rooms.html">Rooms</a></li>
+                    <li class="header-nav-list"><a class="header-nav-link nav-item" href="facilities.html">Facilities</a></li>
+                    <li class="header-nav-list"><a class="header-nav-link nav-item" href="contact-page.html">Contact</a></li>
+                </ul>
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                </button>
+                <div class="header-hamburger-icon">
+                    <div class="header-hamburger-line-1"></div>
+                    <div class="header-hamburger-line-2"></div>
+                    <div class="header-hamburger-line-3"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="rooms-hero">
+            <div class="rooms-hero-content fade-up-scroll">
+                <p class="eyebrow">Premium student stays</p>
+                <h1>Rooms built for comfort, focus and healthy living.</h1>
+                <p>Choose a room that fits your routine from airy two-share spaces to spacious four-share rooms, with the flexibility of AC or non-AC comfort.</p>
+                <div class="hero-actions">
+                    <a href="#room-grid" class="btn btn-primary">Explore Rooms</a>
+                    <a href="contact-page.html" class="btn btn-secondary">Schedule a Visit</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-pill"><strong>2 / 3 / 4</strong><span>Sharing options</span></div>
+                    <div class="stat-pill"><strong>AC + Non-AC</strong><span>Flexibility</span></div>
+                    <div class="stat-pill"><strong>Ventilated</strong><span>Fresh airflow</span></div>
+                </div>
+            </div>
+            <div class="rooms-hero-visual fade-up-scroll">
+                <div class="hero-card hero-card-main">
+                    <img src="assets/img/4bed ac.png" alt="Premium 4-share AC room" loading="lazy">
+                </div>
+                <div class="hero-card hero-card-side">
+                    <h3>Why students love these rooms</h3>
+                    <ul>
+                        <li>Fast Wi-Fi and study-friendly lighting</li>
+                        <li>Ventilated spaces with fresh air flow</li>
+                        <li>Power backup and 24/7 water access</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="room-grid" class="section-block room-section">
+            <div class="section-header fade-up-scroll">
+                <h2>Choose your ideal room</h2>
+                <div class="horizontal"></div>
+                <p>Filter by room type to find the best fit for your lifestyle and budget.</p>
+            </div>
+
+            <div class="filter-row fade-up-scroll">
+                <button class="filter-chip active" data-filter="all">All Rooms</button>
+                <button class="filter-chip" data-filter="ac">AC Rooms</button>
+                <button class="filter-chip" data-filter="non-ac">Non-AC Rooms</button>
+            </div>
+
+            <div class="room-grid">
+                <article class="room-card fade-up-scroll" data-category="ac">
+                    <div class="room-badge">AC • 2 Share</div>
+                    <img src="assets/img/2bed ac.jpeg" alt="Two-share AC room" loading="lazy">
+                    <h3>2 Share AC Room</h3>
+                    <p>Comfortable room category for students who prefer a quieter, air-conditioned setup.</p>
+                    <ul class="room-specs">
+                        <li><span>Cost</span><strong>₹1,25,000/year</strong></li>
+                        <li><span>Ventilation</span><strong>Excellent airflow</strong></li>
+                        <li><span>Bed Setup</span><strong>2 single beds</strong></li>
+                        <li><span>Facilities</span><strong>Wi-Fi, study table, wardrobe</strong></li>
+                    </ul>
+                </article>
+
+                <article class="room-card fade-up-scroll" data-category="non-ac">
+                    <div class="room-badge">Non-AC • 2 Share</div>
+                    <img src="assets/img/2bed nonac.jpeg" alt="Two-share non-AC room" loading="lazy">
+                    <h3>2 Share Non-AC Room</h3>
+                    <p>Budget-friendly room category for students who want a simple shared stay.</p>
+                    <ul class="room-specs">
+                        <li><span>Cost</span><strong>₹1,10,000/year</strong></li>
+                        <li><span>Ventilation</span><strong>Cross ventilation</strong></li>
+                        <li><span>Bed Setup</span><strong>2 single beds</strong></li>
+                        <li><span>Facilities</span><strong>Fan, storage, shared washroom</strong></li>
+                    </ul>
+                </article>
+
+                <article class="room-card fade-up-scroll" data-category="ac">
+                    <div class="room-badge">AC • 3 Share</div>
+                    <img src="assets/img/3bed ac.jpeg" alt="Three-share AC room" loading="lazy">
+                    <h3>3 Share AC Room</h3>
+                    <p>Air-conditioned room category designed for students who want extra comfort.</p>
+                    <ul class="room-specs">
+                        <li><span>Cost</span><strong>₹1,15,000/year</strong></li>
+                        <li><span>Ventilation</span><strong>Bright and airy</strong></li>
+                        <li><span>Bed Setup</span><strong>3 single beds</strong></li>
+                        <li><span>Facilities</span><strong>AC, wardrobe, charging points</strong></li>
+                    </ul>
+                </article>
+
+                <article class="room-card fade-up-scroll" data-category="non-ac">
+                    <div class="room-badge">Non-AC • 3 Share</div>
+                    <img src="assets/img/3bed non ac.jpeg" alt="Three-share non-AC room" loading="lazy">
+                    <h3>3 Share Non-AC Room</h3>
+                    <p>Practical room category for students seeking shared accommodation at a lower cost.</p>
+                    <ul class="room-specs">
+                        <li><span>Cost</span><strong>₹1,00,000/year</strong></li>
+                        <li><span>Ventilation</span><strong>Open windows & airflow</strong></li>
+                        <li><span>Bed Setup</span><strong>3 single beds</strong></li>
+                        <li><span>Facilities</span><strong>Fan, storage, shared bath</strong></li>
+                    </ul>
+                </article>
+
+                <article class="room-card fade-up-scroll" data-category="ac">
+                    <div class="room-badge">AC • 4 Share</div>
+                    <img src="assets/img/4bed ac.png" alt="Four-share AC room" loading="lazy">
+                    <h3>4 Share AC Room</h3>
+                    <p>Shared air-conditioned room category built for comfort and everyday convenience.</p>
+                    <ul class="room-specs">
+                        <li><span>Cost</span><strong>₹1,05,000/year</strong></li>
+                        <li><span>Ventilation</span><strong>Balanced airflow</strong></li>
+                        <li><span>Bed Setup</span><strong>4 single beds</strong></li>
+                        <li><span>Facilities</span><strong>AC, study desk, mirror, storage</strong></li>
+                    </ul>
+                </article>
+
+                <article class="room-card fade-up-scroll" data-category="non-ac">
+                    <div class="room-badge">Non-AC • 4 Share</div>
+                    <img src="assets/img/4 bed non ac.png" alt="Four-share non-AC room" loading="lazy">
+                    <h3>4 Share Non-AC Room</h3>
+                    <p>Cost-effective room category for students who want a simple shared living setup.</p>
+                    <ul class="room-specs">
+                        <li><span>Cost</span><strong>₹95,000/year</strong></li>
+                        <li><span>Ventilation</span><strong>Fresh air layout</strong></li>
+                        <li><span>Bed Setup</span><strong>4 single beds</strong></li>
+                        <li><span>Facilities</span><strong>Fan, storage, shared restroom</strong></li>
+                    </ul>
+                </article>
+            </div>
+        </section>
+
+        <section class="section-block intro-section">
+            <div class="section-header fade-up-scroll">
+                <h2>Room options tailored for every budget</h2>
+                <div class="horizontal"></div>
+                <p>Each room is designed to balance affordability, hygiene, and comfort with practical hostel living in mind.</p>
+            </div>
+            <div class="benefit-row fade-up-scroll">
+                <div class="benefit-card">
+                    <span class="feature-icon-wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-6 9 6v11a2 2 0 0 1-2 2h-4V14H9v8H5a2 2 0 0 1-2-2V9Z"/><path d="M9 22V12h6v10"/></svg>
+                    </span>
+                    <h3>Clean & breathable</h3>
+                    <p>Freshly maintained rooms with well-ventilated layouts and tidy common spaces.</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="feature-icon-wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8Z"/></svg>
+                    </span>
+                    <h3>Reliable essentials</h3>
+                    <p>Power backup, hot water access, and calm surroundings for everyday ease.</p>
+                </div>
+                <div class="benefit-card">
+                    <span class="feature-icon-wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18h16"/><path d="M12 12a4 4 0 0 0 0-8 4 4 0 0 0 0 8Z"/><path d="M12 22c3.5 0 6-1.5 6-4v-2"/><path d="M12 18c-3.5 0-6-1.5-6-4v-2"/></svg>
+                    </span>
+                    <h3>Study-ready setup</h3>
+                    <p>Comfortable beds, good lighting, and Wi-Fi support for both rest and study.</p>
+                </div>
+            </div>
+        </section>
+        <section class="section-block cta-section fade-up-scroll">
+            <div class="cta-card">
+                <h2>Need help choosing the right room?</h2>
+                <p>Our team can guide you with the best fit based on your budget, comfort preference and sharing style.</p>
+                <a href="contact-page.html" class="btn btn-primary">Contact Us</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <img src="assets/img/logo.png" alt="Minakshi Boys Hostel" class="footer-logo">
+                <p>Premium student living with comfort, safety and a welcoming home-like atmosphere near KL University.</p>
+            </div>
+            <div class="footer-links">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="rooms.html">Rooms</a></li>
+                    <li><a href="contact-page.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3 class="footer-title">Contact Us</h3>
+                <ul class="footer-contact-list">
+                    <li><span class="footer-icon-wrapper">📍</span>KL University Area, Vijayawada</li>
+                    <li><span class="footer-icon-wrapper">📞</span>+91 9966264460</li>
+                    <li><span class="footer-icon-wrapper">✉️</span>minakshi.hostel@gmail.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Minakshi Boys Hostel. All Rights Reserved.</p>
+            <p class="footer-sub-bottom">Crafted for a modern and premium student experience.</p>
+        </div>
+    </footer>
+
+    <script defer>
+        (() => {
+            const loader = document.getElementById('loader');
+            const header = document.getElementById('main-header');
+            const scrollBar = document.body;
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const hamburger = document.querySelector('.header-hamburger-icon');
+            const navList = document.querySelector('.header-nav-lists');
+            const filterChips = document.querySelectorAll('.filter-chip');
+            const roomCards = document.querySelectorAll('.room-card');
+
+            const hideLoader = () => {
+                if (loader) {
+                    loader.classList.add('none');
+                }
+                if (scrollBar) {
+                    scrollBar.classList.remove('scroll-bar');
+                }
+            };
+
+            if (document.readyState === 'complete') {
+                hideLoader();
+            } else {
+                window.addEventListener('load', hideLoader);
+                window.addEventListener('DOMContentLoaded', hideLoader);
+            }
+
+            setTimeout(hideLoader, 1000);
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('solid-header');
+                    header.classList.remove('transparent-header');
+                } else {
+                    header.classList.remove('solid-header');
+                    header.classList.add('transparent-header');
+                }
+
+                document.querySelectorAll('.fade-up-scroll').forEach((el) => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight - 100) {
+                        el.classList.add('visible');
+                    }
+                });
+            });
+
+            if (themeToggleBtn) {
+                themeToggleBtn.addEventListener('click', () => {
+                    const currentTheme = document.documentElement.getAttribute('data-theme');
+                    if (currentTheme === 'dark') {
+                        document.documentElement.removeAttribute('data-theme');
+                        localStorage.setItem('theme', 'light');
+                    } else {
+                        document.documentElement.setAttribute('data-theme', 'dark');
+                        localStorage.setItem('theme', 'dark');
+                    }
+                });
+            }
+
+            if (hamburger && navList) {
+                hamburger.addEventListener('click', () => {
+                    navList.classList.toggle('show');
+                    hamburger.classList.toggle('show');
+                });
+            }
+
+            filterChips.forEach((chip) => {
+                chip.addEventListener('click', () => {
+                    filterChips.forEach((item) => item.classList.remove('active'));
+                    chip.classList.add('active');
+                    const filter = chip.dataset.filter;
+
+                    roomCards.forEach((card) => {
+                        const matches = filter === 'all' || card.dataset.category === filter;
+                        card.classList.toggle('is-hidden', !matches);
+                    });
+                });
+            });
+
+            window.dispatchEvent(new Event('scroll'));
+        })();
+    </script>
+</body>
+</html>

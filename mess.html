@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mess menu and dining experience at Minakshi Boys Hostel with day-wise breakfast, lunch and dinner options.">
+    <title>Minakshi Boys Hostel | Mess</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/global-header.css">
+    <link rel="stylesheet" href="assets/css/global-footer.css">
+    <link rel="stylesheet" href="assets/css/mess.css">
+    <link rel="shortcut icon" href="assets/img/logo.png" type="image/png">
+
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    </script>
+</head>
+<body class="mess-page">
+    <header id="main-header" class="solid-header">
+        <div class="header-container">
+            <nav class="header-nav-bar">
+                <div class="header-nav-logo">
+                    <a href="index.html" class="logo-link" id="logo-link">
+                        <img src="assets/img/logo.png" alt="Minakshi Boys Hostel" class="navbar-logo">
+                    </a>
+                </div>
+                <ul class="header-nav-lists">
+                    <li class="header-nav-list"><a class="header-nav-link nav-item" href="index.html">Home</a></li>
+                    <li class="header-nav-list"><a class="header-nav-link nav-item header-active" href="mess.html">Menu</a></li>
+                    <li class="header-nav-list"><a class="header-nav-link nav-item" href="rooms.html">Rooms</a></li>
+                    <li class="header-nav-list"><a class="header-nav-link nav-item" href="facilities.html">Facilities</a></li>
+                    <li class="header-nav-list"><a class="header-nav-link nav-item" href="contact-page.html">Contact</a></li>
+                </ul>
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme">
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                </button>
+                <div class="header-hamburger-icon">
+                    <div class="header-hamburger-line-1"></div>
+                    <div class="header-hamburger-line-2"></div>
+                    <div class="header-hamburger-line-3"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="weekly-dashboard" class="section-block dashboard-section">
+            <div class="dashboard-container">
+                <aside class="dashboard-sidebar" aria-label="Days of week">
+                    <h3 class="sidebar-title">7-Day Menu</h3>
+                    <ul class="day-list" id="dayList">
+                        <li class="day-item active" data-day="Monday">Monday</li>
+                        <li class="day-item" data-day="Tuesday">Tuesday</li>
+                        <li class="day-item" data-day="Wednesday">Wednesday</li>
+                        <li class="day-item" data-day="Thursday">Thursday</li>
+                        <li class="day-item" data-day="Friday">Friday</li>
+                        <li class="day-item" data-day="Saturday">Saturday</li>
+                        <li class="day-item" data-day="Sunday">Sunday</li>
+                    </ul>
+                    <select id="mobileDaySelect" class="mobile-day-select" aria-label="Select day of week">
+                        <option value="Monday">Monday</option>
+                        <option value="Tuesday">Tuesday</option>
+                        <option value="Wednesday">Wednesday</option>
+                        <option value="Thursday">Thursday</option>
+                        <option value="Friday">Friday</option>
+                        <option value="Saturday">Saturday</option>
+                        <option value="Sunday">Sunday</option>
+                    </select>
+                </aside>
+
+                <section class="dashboard-content" id="dashboardContent">
+                    <div class="meals" id="mealsContainer">
+                        <div class="meal-card" data-meal="Breakfast">
+                            <h4>Breakfast</h4>
+                            <div class="meal-grid">
+                                <figure class="meal-image"><img id="breakfastImg" src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=800&q=60" alt="Breakfast"></figure>
+                                <div class="meal-body" id="breakfastContent">Poha, curd and a cup of tea — filling and light to start the day.</div>
+                            </div>
+                        </div>
+                        <div class="meal-card" data-meal="Lunch">
+                            <h4>Lunch</h4>
+                            <div class="meal-grid">
+                                <figure class="meal-image"><img id="lunchImg" src="https://images.unsplash.com/photo-1546069901-eacef0df6022?auto=format&fit=crop&w=800&q=60" alt="Lunch"></figure>
+                                <div class="meal-body" id="lunchContent">Chapati, dal tadka and paneer sabzi with a fresh salad — balanced and hearty.</div>
+                            </div>
+                        </div>
+                        <div class="meal-card" data-meal="Dinner">
+                            <h4>Dinner</h4>
+                            <div class="meal-grid">
+                                <figure class="meal-image"><img id="dinnerImg" src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=60" alt="Dinner"></figure>
+                                <div class="meal-body" id="dinnerContent">Rice with mixed vegetable curry and raita — warm and comforting.</div>
+                            </div>
+                        </div>
+                        <div class="meal-card" data-meal="Snacks">
+                            <h4>Snacks</h4>
+                            <div class="meal-grid">
+                                <figure class="meal-image"><img id="snacksImg" src="https://images.unsplash.com/photo-1514516870922-3f8a3b6e2a2f?auto=format&fit=crop&w=800&q=60" alt="Snacks"></figure>
+                                <div class="meal-body" id="snacksContent">Assorted pakoras, fruit chaat and tea — light evening bites to keep you going.</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-about">
+                <img src="assets/img/logo.png" alt="Minakshi Boys Hostel" class="footer-logo">
+                <p>Premium student living with comfort, safety and a welcoming home-like atmosphere near KL University.</p>
+            </div>
+            <div class="footer-links">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="rooms.html">Rooms</a></li>
+                    <li><a href="contact-page.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3 class="footer-title">Contact Us</h3>
+                <ul class="footer-contact-list">
+                    <li><span class="footer-icon-wrapper">📍</span>KL University Area, Vijayawada</li>
+                    <li><span class="footer-icon-wrapper">📞</span>+91 9966264460</li>
+                    <li><span class="footer-icon-wrapper">✉️</span>minakshi.hostel@gmail.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Minakshi Boys Hostel. All Rights Reserved.</p>
+            <p class="footer-sub-bottom">Crafted for a modern and premium student experience.</p>
+        </div>
+    </footer>
+
+    <script defer src="assets/js/toggleHamburger.js"></script>
+    <script defer src="assets/js/mess-dashboard.js"></script>
+    <script defer>
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        themeToggleBtn?.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', nextTheme);
+            localStorage.setItem('theme', nextTheme);
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.fade-up-scroll').forEach(el => observer.observe(el));
+    </script>
+    <!-- Lightbox for Image Gallery -->
+    <div id="image-lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+    </div>
+</body>
+</html>
