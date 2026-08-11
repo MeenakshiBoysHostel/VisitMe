@@ -1,209 +1,191 @@
 document.addEventListener('DOMContentLoaded', function () {
+
+    /* ========================================================
+       REAL MENU DATA — Source of truth from physical menu cards
+       ======================================================== */
     const menus = {
         Monday: {
-            Breakfast: 'Idly, Bajji',
-            BreakfastImg: [
-                'https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=60'
+            Breakfast: [
+                'Ghee Karam Dosa', 'Masala Dosa', 'Idly', 'Ghee Karampodi',
+                'Allam Chutney', 'Pappulu Podi', 'Minapa Punugulu'
             ],
-            Lunch: 'Aloo65, pappu, sambar, rice',
-            LunchImg: [
-                'https://images.unsplash.com/photo-1546069901-eacef0df6022?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1526318472351-c75fcf0703d8?auto=format&fit=crop&w=800&q=60'
+            Lunch: [
+                'Tomato Pappu', 'Gongora Roti Pachadi', 'Fry', 'Curry',
+                'Sambar', 'Rasam', 'Curd', 'Rice'
             ],
-            Dinner: 'Parota, Curd rice',
-            DinnerImg: [
-                'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1523986371872-9d3ba2e2f642?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1481931715705-36f3b9f7c3b5?auto=format&fit=crop&w=800&q=60'
+            Snacks: [
+                'Onion Pakodi', 'Masala Gaari', 'Thotakura Pakodi'
             ],
-            Snacks: 'Noodles',
-            SnacksImg: [
-                'https://images.unsplash.com/photo-1514516870922-3f8a3b6e2a2f?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1506354666786-959d6d497f1a?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1505250469679-203ad9ced0cb?auto=format&fit=crop&w=800&q=60'
+            Dinner: [
+                'Egg Biryani', 'Parota', 'Chicken Sheruva', 'Veg Sheruva',
+                'Zeera Rice', 'Tomato Rice'
             ]
         },
         Tuesday: {
-            Breakfast: 'Idly, Uggani',
-            BreakfastImg: [
-                'https://images.unsplash.com/photo-1512058564366-c9e3d0db9d6f?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=800&q=60'
+            Breakfast: [
+                'Puri', 'Idly', 'Curry', 'Sambar', 'Allam Chutney', 'Palli Chutney'
             ],
-            Lunch: 'Pappu, Mealmaker',
-            LunchImg: [
-                'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1525755662778-989d0524087e?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1546069901-eacef0df6022?auto=format&fit=crop&w=800&q=60'
+            Lunch: [
+                'Palakora Pappu', 'Tomato Roti Pachadi', 'Amla Pickle', 'Fry',
+                'Curry', 'Sambar', 'Rasam', 'Curd', 'Chips', 'Rice'
             ],
-            Dinner: 'Friedrice',
-            DinnerImg: [
-                'https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1516685018646-549c5a7a9bff?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1497534446932-c925b458314e?auto=format&fit=crop&w=800&q=60'
+            Snacks: [
+                'Egg Noodles', 'Veg Noodles', 'Manchuriya', 'Maggi'
             ],
-            Snacks: 'Bajji',
-            SnacksImg: [
-                'https://images.unsplash.com/photo-1506354666786-959d6d497f1a?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1514516870922-3f8a3b6e2a2f?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1505250469679-203ad9ced0cb?auto=format&fit=crop&w=800&q=60'
+            Dinner: [
+                'Chicken Fried Rice', 'Veg Paneer Fried Rice', 'Raita'
             ]
         },
         Wednesday: {
-            Breakfast: 'Paratha, curd, salad',
-            BreakfastImg: [
-                'https://images.unsplash.com/photo-1505250469679-203ad9ced0cb?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=60'
+            Breakfast: [
+                'Vegetable Uttappam', 'Idly', 'Chutney', 'Allam Chutney',
+                'Tomato Chutney'
             ],
-            Lunch: 'Chapati, mix veg curry, dal, rice',
-            LunchImg: [
-                'https://images.unsplash.com/photo-1525755662778-989d0524087e?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1546069901-eacef0df6022?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1526318472351-c75fcf0703d8?auto=format&fit=crop&w=800&q=60'
+            Lunch: [
+                'Gongora Pappu', 'Dosakaya Roti Pachadi', 'Pandu Mirapakaya',
+                'Fry', 'Curry', 'Sambar', 'Rasam', 'Curd', 'Rice'
             ],
-            Dinner: 'Vegetable pulao, dal fry, salad',
-            DinnerImg: [
-                'https://images.unsplash.com/photo-1523986371872-9d3ba2e2f642?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1481931715705-36f3b9f7c3b5?auto=format&fit=crop&w=800&q=60'
+            Snacks: [
+                'Mysorepak', 'Gulabjam', 'Badusha', 'Sweet Boondi'
             ],
-            Snacks: 'Veg cutlets with mint chutney',
-            SnacksImg: [
-                'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1514516870922-3f8a3b6e2a2f?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1506354666786-959d6d497f1a?auto=format&fit=crop&w=800&q=60'
+            Dinner: [
+                'Chicken Fry', 'Dum Biryani', 'Chicken Curry', 'Fish Fry',
+                'Fish Curry', 'Katta', 'Raita', 'Rice'
             ]
         },
         Thursday: {
-            Breakfast: 'Idli, sambar, coconut chutney',
-            BreakfastImg: [
-                'https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1512058564366-c9e3d0db9d6f?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=800&q=60'
+            Breakfast: [
+                'Mysore Bajji', 'Idly', 'Tomato Bath', 'Allam and Tomato Chutney',
+                'Karampodi'
             ],
-            Lunch: 'Rice, chole, bhindi fry',
-            LunchImg: [
-                'https://images.unsplash.com/photo-1526318472351-c75fcf0703d8?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=800&q=60'
+            Lunch: [
+                'Tomato Pappu', 'Dondakaya Roti Pachadi', 'Fry', 'Curry',
+                'Sambar', 'Rasam', 'Curd', 'Rice'
             ],
-            Dinner: 'Rava dosa, vegetable kurma',
-            DinnerImg: [
-                'https://images.unsplash.com/photo-1516685018646-549c5a7a9bff?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1497534446932-c925b458314e?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1523986371872-9d3ba2e2f642?auto=format&fit=crop&w=800&q=60'
+            Snacks: [
+                'Ice Cream', 'Punugu', 'Panipuri', 'Aloo Bajji', 'Banana Bajji'
             ],
-            Snacks: 'Sweet corn soup and toast',
-            SnacksImg: [
-                'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1505250469679-203ad9ced0cb?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1514516870922-3f8a3b6e2a2f?auto=format&fit=crop&w=800&q=60'
+            Dinner: [
+                'Egg Dosa', 'Pesara Dosa', 'Masala Dosa', 'Onion Dosa',
+                'Ghee Karam Podi', 'Pudhina Rice', 'Raita', 'Allam Chutney'
             ]
         },
         Friday: {
-            Breakfast: 'Veg sandwich, milkshake',
-            BreakfastImg: [
-                'https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1505250469679-203ad9ced0cb?auto=format&fit=crop&w=800&q=60'
+            Breakfast: [
+                'Tomato Rice', 'Zeera Rice', 'Vegetable Pulao', 'Kothimeera Rice',
+                'Coconut Rice', 'Pudina Rice', 'Idly', 'Karampodi', 'Populu',
+                'Chutney', 'Nala Karam', 'Palli Podi', 'Coconut Podi'
             ],
-            Lunch: 'Chapati, aloo gobi, dal, rice',
-            LunchImg: [
-                'https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1525755662778-989d0524087e?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1546069901-eacef0df6022?auto=format&fit=crop&w=800&q=60'
+            Lunch: [
+                'Dosakaya Pappu', 'Mango Pachadi', 'Brinjal Roti Pachadi', 'Fry',
+                'Curry', 'Sambar', 'Rasam', 'Curd', 'Rice'
             ],
-            Dinner: 'Masala khichdi, curd, salad',
-            DinnerImg: [
-                'https://images.unsplash.com/photo-1497534446932-c925b458314e?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1516685018646-549c5a7a9bff?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=60'
+            Snacks: [
+                'Samosa', 'Cutlet', 'Bajji', 'Biscuit', 'Mixture',
+                'Dry Fruit Namkeen'
             ],
-            Snacks: 'Fruit chaat',
-            SnacksImg: [
-                'https://images.unsplash.com/photo-1505250469679-203ad9ced0cb?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1506354666786-959d6d497f1a?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1514516870922-3f8a3b6e2a2f?auto=format&fit=crop&w=800&q=60'
+            Dinner: [
+                'Egg Biryani', 'Egg Bujji', 'Egg Curry', 'Omlet',
+                'Egg Fried Rice', 'Pappu', 'Sambar', 'Chutney', 'Curd'
             ]
         },
         Saturday: {
-            Breakfast: 'Idiyappam, stew, tea',
-            BreakfastImg: [
-                'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=800&q=60'
+            Breakfast: [
+                'Gari', 'Sambar', 'Idly', 'Chutney', 'Allam Chutney',
+                'Palli Chutney'
             ],
-            Lunch: 'Rice, palak paneer, dal',
-            LunchImg: [
-                'https://images.unsplash.com/photo-1526318472351-c75fcf0703d8?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1546069901-eacef0df6022?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1525755662778-989d0524087e?auto=format&fit=crop&w=800&q=60'
+            Lunch: [
+                'Mudda Pappu', 'Curd Thalimpu', 'Uppu Mirapayaka',
+                'Chintakaya Pachadi', 'Fry', 'Curry', 'Rasam', 'Curd', 'Rice'
             ],
-            Dinner: 'Chapati, mixed vegetable curry, raita',
-            DinnerImg: [
-                'https://images.unsplash.com/photo-1481931715705-36f3b9f7c3b5?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1523986371872-9d3ba2e2f642?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=800&q=60'
+            Snacks: [
+                'Seasonal Fruit Salad'
             ],
-            Snacks: 'Grilled corn and masala chai',
-            SnacksImg: [
-                'https://images.unsplash.com/photo-1506354666786-959d6d497f1a?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1514516870922-3f8a3b6e2a2f?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=60'
+            Dinner: [
+                'Chapathi', 'Mixed Vegetable Curry', 'Palak Paneer',
+                'Rajma Curry', 'Chole Curry', 'Banana', 'Curd Rice', 'Polihora'
             ]
         },
         Sunday: {
-            Breakfast: 'Puri, aloo curry, lassi',
-            BreakfastImg: [
-                'https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1512058564366-c9e3d0db9d6f?auto=format&fit=crop&w=800&q=60'
+            Breakfast: [
+                'Ravva Upma', 'Tomato Bath', 'Semiya Upma', 'Idly', 'Pongal',
+                'Karampodi', 'Allam Chutney', 'Coconut Podi'
             ],
-            Lunch: 'Rice, dal makhani, veg pulao, salad',
-            LunchImg: [
-                'https://images.unsplash.com/photo-1546069901-eacef0df6022?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1526318472351-c75fcf0703d8?auto=format&fit=crop&w=800&q=60'
+            Lunch: [
+                'Chicken Biryani', 'Fry Biryani', 'Dum Biryani', 'Chicken Curry',
+                'Chicken Fry', 'Sp. Biryani', 'Chicken Lollipop', 'Katta',
+                'Gongora', 'Sheruva', 'Raita', 'Panasakaya Biryani',
+                'Mix Biryani', 'Paneer Curry', 'Paneer Biryani',
+                'Mushroom Curry', 'Sweet', 'Ice Cream'
             ],
-            Dinner: 'Chapati, kadhi, bhindi fry',
-            DinnerImg: [
-                'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1516685018646-549c5a7a9bff?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1497534446932-c925b458314e?auto=format&fit=crop&w=800&q=60'
+            Snacks: [
+                'Semiya Payasam', 'Chakera Pongali'
             ],
-            Snacks: 'Pakoras with mint chutney',
-            SnacksImg: [
-                'https://images.unsplash.com/photo-1514516870922-3f8a3b6e2a2f?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1505250469679-203ad9ced0cb?auto=format&fit=crop&w=800&q=60',
-                'https://images.unsplash.com/photo-1506354666786-959d6d497f1a?auto=format&fit=crop&w=800&q=60'
+            Dinner: [
+                'Pappu', 'Sambar', 'Rasam Curry', 'Chips', 'Chutney',
+                'Curd', 'Rice'
             ]
         }
     };
 
-    const dayList = document.getElementById('dayList');
-    const dayItems = Array.from(document.querySelectorAll('.day-item'));
-    const breakfastEl = document.getElementById('breakfastContent');
-    const lunchEl = document.getElementById('lunchContent');
-    const dinnerEl = document.getElementById('dinnerContent');
-    const snacksEl = document.getElementById('snacksContent');
-    
+    /* ========================================================
+       CURATED FOOD IMAGES — Relevant to South Indian cuisine
+       ======================================================== */
+    const mealImages = {
+        Breakfast: [
+            'https://images.unsplash.com/photo-1630383249896-424e482df921?auto=format&fit=crop&w=800&q=60',
+            'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=800&q=60',
+            'https://images.unsplash.com/photo-1567337710282-00832b415979?auto=format&fit=crop&w=800&q=60'
+        ],
+        Lunch: [
+            'https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=800&q=60',
+            'https://images.unsplash.com/photo-1546069901-eacef0df6022?auto=format&fit=crop&w=800&q=60',
+            'https://images.unsplash.com/photo-1596797038530-2c107229654b?auto=format&fit=crop&w=800&q=60'
+        ],
+        Snacks: [
+            'https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=60',
+            'https://images.unsplash.com/photo-1606491956689-2ea866880049?auto=format&fit=crop&w=800&q=60',
+            'https://images.unsplash.com/photo-1517244683847-7456b63c5969?auto=format&fit=crop&w=800&q=60'
+        ],
+        Dinner: [
+            'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=800&q=60',
+            'https://images.unsplash.com/photo-1631515243349-e0cb75fb8d3a?auto=format&fit=crop&w=800&q=60',
+            'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=60'
+        ]
+    };
+
+    /* ========================================================
+       MEAL METADATA — Icons, labels, timing, accent colors
+       ======================================================== */
+    const mealMeta = {
+        Breakfast: { icon: '☀️', time: '7:30 – 9:30 AM', accent: 'breakfast' },
+        Lunch:     { icon: '🍛', time: '12:30 – 2:30 PM', accent: 'lunch' },
+        Snacks:    { icon: '🍿', time: '4:30 – 6:00 PM', accent: 'snacks' },
+        Dinner:    { icon: '🌙', time: '7:30 – 9:30 PM', accent: 'dinner' }
+    };
+
+    /* ========================================================
+       DOM REFERENCES
+       ======================================================== */
+    const dayItems = Array.from(document.querySelectorAll('.day-pill'));
+    const mobileDaySelect = document.getElementById('mobileDaySelect');
+    const mealsContainer = document.getElementById('mealsContainer');
+    const selectedDayTitle = document.getElementById('selectedDayTitle');
+
     // Lightbox elements
     const lightbox = document.getElementById('image-lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxClose = document.querySelector('.lightbox-close');
 
-    // Lightbox open function
+    /* ========================================================
+       LIGHTBOX
+       ======================================================== */
     function openLightbox(src) {
         if (!lightbox || !lightboxImg) return;
         lightboxImg.src = src;
         lightbox.classList.add('show');
     }
 
-    // Lightbox close logic
     if (lightboxClose && lightbox) {
         lightboxClose.addEventListener('click', () => lightbox.classList.remove('show'));
         lightbox.addEventListener('click', (e) => {
@@ -211,79 +193,136 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    /* ========================================================
+       RENDER DAY — Build meal cards dynamically
+       ======================================================== */
     function renderDay(day) {
         const data = menus[day];
-        if (!data) return;
-        breakfastEl.textContent = data.Breakfast;
-        lunchEl.textContent = data.Lunch;
-        dinnerEl.textContent = data.Dinner;
-        if (snacksEl) snacksEl.textContent = data.Snacks || '';
+        if (!data || !mealsContainer) return;
 
-        const mealTypes = ['Breakfast', 'Lunch', 'Dinner', 'Snacks'];
+        // Update title
+        if (selectedDayTitle) {
+            selectedDayTitle.textContent = day + "'s Menu";
+        }
 
-        mealTypes.forEach(meal => {
-            const container = document.querySelector(`.meal-card[data-meal="${meal}"] .meal-image`);
-            if (!container) return;
-            container.innerHTML = '';
-            
-            const images = data[`${meal}Img`] || [];
-            
-            images.forEach((imgSrc, index) => {
-                const img = document.createElement('img');
-                img.src = imgSrc;
-                img.alt = meal;
-                if (index === 0) img.classList.add('active');
-                
-                // Add click listener for lightbox
-                img.addEventListener('click', () => {
-                    openLightbox(imgSrc);
-                });
-                
-                container.appendChild(img);
-            });
+        // Build all 4 meal cards
+        const mealOrder = ['Breakfast', 'Lunch', 'Snacks', 'Dinner'];
+        let html = '';
+
+        mealOrder.forEach((meal, idx) => {
+            const items = data[meal] || [];
+            const meta = mealMeta[meal];
+            const images = mealImages[meal] || [];
+
+            // Build dish tags
+            const tagsHtml = items.map(item =>
+                `<span class="dish-tag">${item}</span>`
+            ).join('');
+
+            // Build image slides
+            const imagesHtml = images.map((src, i) =>
+                `<img src="${src}" alt="${meal}" class="${i === 0 ? 'active' : ''}" loading="lazy">`
+            ).join('');
+
+            html += `
+            <div class="meal-card meal-card--${meta.accent}" data-meal="${meal}" style="animation-delay: ${idx * 0.08}s">
+                <figure class="meal-image">
+                    ${imagesHtml}
+                    <div class="meal-image-overlay"></div>
+                    <div class="meal-header-badge">
+                        <span class="meal-icon">${meta.icon}</span>
+                        <div class="meal-header-text">
+                            <h3 class="meal-title">${meal}</h3>
+                            <span class="meal-time">${meta.time}</span>
+                        </div>
+                    </div>
+                </figure>
+                <div class="meal-body">
+                    <div class="dish-count">${items.length} item${items.length !== 1 ? 's' : ''}</div>
+                    <div class="dish-tags">
+                        ${tagsHtml}
+                    </div>
+                </div>
+            </div>`;
+        });
+
+        mealsContainer.innerHTML = html;
+
+        // Attach lightbox click listeners to new images
+        mealsContainer.querySelectorAll('.meal-image img').forEach(img => {
+            img.addEventListener('click', () => openLightbox(img.src));
         });
     }
 
-    const mobileDaySelect = document.getElementById('mobileDaySelect');
+    /* ========================================================
+       DAY SELECTOR — Desktop pills
+       ======================================================== */
+    dayItems.forEach(pill => {
+        pill.addEventListener('click', () => {
+            dayItems.forEach(p => p.classList.remove('active'));
+            pill.classList.add('active');
+            const day = pill.dataset.day;
+            if (mobileDaySelect) mobileDaySelect.value = day;
+            renderDay(day);
+        });
 
-    dayList.addEventListener('click', (e) => {
-        const li = e.target.closest('.day-item');
-        if (!li) return;
-        dayItems.forEach(i => i.classList.remove('active'));
-        li.classList.add('active');
-        const day = li.dataset.day;
-        if (mobileDaySelect) mobileDaySelect.value = day;
-        renderDay(day);
+        // Keyboard accessibility
+        pill.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                pill.click();
+            }
+        });
     });
 
+    /* ========================================================
+       DAY SELECTOR — Mobile dropdown
+       ======================================================== */
     if (mobileDaySelect) {
         mobileDaySelect.addEventListener('change', (e) => {
             const day = e.target.value;
-            dayItems.forEach(i => {
-                if (i.dataset.day === day) i.classList.add('active');
-                else i.classList.remove('active');
+            dayItems.forEach(p => {
+                if (p.dataset.day === day) p.classList.add('active');
+                else p.classList.remove('active');
             });
             renderDay(day);
         });
     }
 
-    // Initial render
-    renderDay('Monday');
+    /* ========================================================
+       AUTO-DETECT TODAY — Highlight current day on load
+       ======================================================== */
+    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const today = days[new Date().getDay()];
 
-    // Auto slideshow logic
+    // Set active pill
+    dayItems.forEach(p => {
+        if (p.dataset.day === today) p.classList.add('active');
+        else p.classList.remove('active');
+    });
+
+    // Set mobile select
+    if (mobileDaySelect) mobileDaySelect.value = today;
+
+    // Initial render
+    renderDay(today);
+
+    /* ========================================================
+       IMAGE SLIDESHOW — Rotate images every 3.5s
+       ======================================================== */
     setInterval(() => {
         const imageContainers = document.querySelectorAll('.meal-image');
         imageContainers.forEach(container => {
             const images = container.querySelectorAll('img');
             if (images.length <= 1) return;
-            
+
             let activeIndex = Array.from(images).findIndex(img => img.classList.contains('active'));
             if (activeIndex !== -1) {
                 images[activeIndex].classList.remove('active');
             } else {
                 activeIndex = 0;
             }
-            
+
             const nextIndex = (activeIndex + 1) % images.length;
             images[nextIndex].classList.add('active');
         });
