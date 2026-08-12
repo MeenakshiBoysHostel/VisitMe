@@ -580,6 +580,7 @@ main {
     justify-content: center;
     font-size: 1.5rem;
     flex-shrink: 0;
+    color: var(--day-title-color);
 }
 
 .note-content h3 {
