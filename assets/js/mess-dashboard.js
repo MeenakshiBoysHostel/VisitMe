@@ -225,7 +225,7 @@ document.addEventListener('DOMContentLoaded', function () {
             ).join('');
 
             html += `
-            <div class="meal-card meal-card--${meta.accent}" data-meal="${meal}" style="animation-delay: ${idx * 0.08}s">
+            <div class="meal-card meal-card--${meta.accent}" data-meal="${meal}" style="animation-delay: ${idx * 0.12}s">
                 <figure class="meal-image">
                     ${imagesHtml}
                     <div class="meal-image-overlay"></div>
