@@ -782,11 +782,12 @@ h1, h2, h3, h4, h5, h6 {
     gap: 30px;
     animation: scroll-marquee 25s linear infinite;
     min-width: 100%;
+    flex-shrink: 0;
 }
 
 @keyframes scroll-marquee {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-100%); }
+    100% { transform: translateX(calc(-100% - 30px)); }
 }
 
 .review-card {
