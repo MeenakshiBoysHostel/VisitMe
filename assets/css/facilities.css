@@ -38,13 +38,14 @@ body.scroll-bar {
 }
 
 #loader {
+	background-color: var(--primary-color);
 	position: fixed;
 	inset: 0;
 	z-index: 9999;
-	display: grid;
-	place-items: center;
-	background: rgba(255, 255, 255, 0.96);
-	transition: opacity 0.4s ease, visibility 0.4s ease;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
 #loader.hidden {
@@ -53,14 +54,19 @@ body.scroll-bar {
 }
 
 .loader-logo {
-	width: 84px;
-	height: auto;
-	animation: pulse 1.2s ease-in-out infinite;
+	height: 100px;
+	width: auto;
+	opacity: 0;
+	transform: scale(0.95);
+	animation: loaderFadeIn 1.5s ease-out forwards;
+	filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
 }
 
-@keyframes pulse {
-	0%, 100% { transform: scale(0.96); }
-	50% { transform: scale(1.04); }
+@keyframes loaderFadeIn {
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
 }
 
 .theme-toggle-btn {
