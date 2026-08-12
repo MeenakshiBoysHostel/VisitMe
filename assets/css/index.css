@@ -622,6 +622,29 @@ h1, h2, h3, h4, h5, h6 {
         max-width: 300px;
     }
 }
+
+@media (max-width: 480px) {
+    .jumbotron-header {
+        font-size: 32px;
+    }
+    
+    .jumbotron-subtitle {
+        font-size: 18px;
+    }
+    
+    .section-header h2 {
+        font-size: 28px;
+    }
+    
+    .features-section, .why-choose-us, .map-section {
+        padding: 60px 15px;
+    }
+    
+    .jumbotron-content {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
 /* Floating Action Buttons */
 .floating-buttons-container {
     position: fixed;
