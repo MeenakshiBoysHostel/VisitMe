@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const template = `Hostel Room Enquiry\n\nName:\n${result.name}\n\nPhone:\n${result.phone}\n\nEmail:\n${email || '-'}\n\nRoom Type:\n${result.roomType}\n\nPreferred Joining Date:\n${joiningDate || '-'}\n\nMessage:\n${result.message}\n\nThank you.`;
 
         const encoded = encodeURIComponent(template);
-        const waNumber = '919966264460';
+        const waNumber = '919440356726';
         const url = `https://wa.me/${waNumber}?text=${encoded}`;
 
         // Open WhatsApp in new tab/window — smooth UX
