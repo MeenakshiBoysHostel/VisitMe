@@ -112,8 +112,7 @@ main {
     position: relative;
     width: 100%;
     min-height: 480px;
-    overflow: hidden;
-    margin-bottom: -40px;
+    margin-bottom: 60px; /* Space for overlapping card */
     display: flex;
 }
 
@@ -152,6 +151,7 @@ main {
     align-items: center;
     gap: 40px;
     z-index: 2;
+    position: relative;
 }
 
 .hero-content {
@@ -230,120 +230,130 @@ main {
    HERO PROMO CARD (PARENTS OFFER)
    ================================================================ */
 .hero-promo-card {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 24px;
-    padding: 40px;
-    width: 100%;
-    max-width: 440px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-    text-align: left;
-    transform: translateX(40px) scale(0.95);
-    opacity: 0;
-    animation: slideInRight 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s forwards;
-    position: relative;
-    overflow: hidden;
-    z-index: 10;
-}
-
-.hero-promo-card::before {
-    content: '';
     position: absolute;
-    top: -50%; left: -50%;
-    width: 200%; height: 200%;
-    background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.15), transparent 60%);
-    pointer-events: none;
+    bottom: -80px; /* Overlaps bottom edge of hero */
+    right: 24px;
+    background: #ffffff; /* Solid white for distinct elevation */
+    border-radius: 20px;
+    padding: 30px;
+    width: 100%;
+    max-width: 340px; /* Compact width */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    text-align: left;
+    transform: translateY(30px);
+    opacity: 0;
+    animation: slideUpFade 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) 0.4s forwards;
+    z-index: 10;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-@keyframes slideInRight {
-    0% { opacity: 0; transform: translateX(40px) scale(0.95); }
-    100% { opacity: 1; transform: translateX(0) scale(1); }
+.hero-promo-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.18);
+}
+
+/* Dark mode overrides */
+[data-theme="dark"] .hero-promo-card {
+    background: #1e1e1e; /* Solid dark background */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+@keyframes slideUpFade {
+    0% { opacity: 0; transform: translateY(30px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
 
 .hero-promo-badge {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    gap: 8px;
     font-size: 0.75rem;
     font-weight: 800;
     color: var(--accent-color);
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    margin-bottom: 12px;
-    background: rgba(212, 175, 55, 0.15);
-    padding: 6px 12px;
-    border-radius: 99px;
+    margin-bottom: 8px;
 }
 
 .hero-promo-card h2 {
-    font-size: 2rem;
-    color: #fff;
-    line-height: 1.1;
-    margin-bottom: 16px;
+    font-size: 1.6rem;
+    color: #111;
+    line-height: 1.2;
+    margin-bottom: 12px;
     font-weight: 700;
+}
+
+[data-theme="dark"] .hero-promo-card h2 {
+    color: #fff;
 }
 
 .highlight-free-large {
-    font-size: 4rem;
+    font-size: 2.5rem;
     font-weight: 900;
+    color: var(--accent-color);
     display: block;
-    margin-top: 4px;
-    background: linear-gradient(135deg, var(--accent-color), #fff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 2px 10px rgba(212, 175, 55, 0.4));
     line-height: 1;
+    margin-top: 2px;
 }
 
 .hero-promo-card p {
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+    color: #555;
     line-height: 1.5;
-    margin-bottom: 30px;
+    margin-bottom: 24px;
+}
+
+[data-theme="dark"] .hero-promo-card p {
+    color: #aaa;
 }
 
 .hero-promo-btn {
-    display: inline-block;
-    padding: 14px 32px;
-    background: var(--accent-color);
-    color: #111;
-    font-size: 1.05rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     font-weight: 700;
-    border-radius: 99px;
+    color: var(--accent-color);
     text-decoration: none;
+    font-size: 0.95rem;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
-    position: relative;
-    z-index: 2;
 }
 
 .hero-promo-btn:hover {
-    background: var(--accent-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
-    color: #000;
+    color: var(--accent-hover);
+    gap: 10px; /* Pushes the arrow slightly */
 }
 
 @media (max-width: 900px) {
+    .mess-hero-banner {
+        margin-bottom: 20px;
+        min-height: auto;
+    }
+    .mess-hero-overlay {
+        padding: 60px 0 40px;
+    }
     .hero-content-wrapper {
         flex-direction: column;
         justify-content: center;
         text-align: center;
-        margin-top: 40px;
-        padding-bottom: 40px;
     }
     .hero-content {
         align-items: center;
         text-align: center;
-        margin-bottom: 20px;
     }
     .hero-content h1, .hero-content p {
         text-align: center;
     }
     .hero-promo-card {
-        max-width: 100%;
-        text-align: center;
-        padding: 40px 20px;
+        position: relative;
+        bottom: auto;
+        right: auto;
+        margin: 40px auto 0;
+        max-width: 360px;
+        transform: translateY(20px);
+    }
+    .hero-promo-card:hover {
+        transform: translateY(-5px);
     }
 }
 
