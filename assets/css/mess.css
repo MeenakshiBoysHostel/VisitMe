@@ -112,7 +112,7 @@ main {
     position: relative;
     width: 100%;
     min-height: 480px;
-    margin-bottom: 60px; /* Space for overlapping card */
+    margin-bottom: 40px; /* Space for overlapping card */
     display: flex;
 }
 
@@ -231,7 +231,7 @@ main {
    ================================================================ */
 .hero-promo-card {
     position: absolute;
-    bottom: -80px; /* Overlaps bottom edge of hero */
+    bottom: -40px; /* Overlaps bottom edge of hero slightly less */
     right: 24px;
     background: #ffffff; /* Solid white for distinct elevation */
     border-radius: 20px;
