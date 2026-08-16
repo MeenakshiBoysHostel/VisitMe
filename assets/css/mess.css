@@ -111,33 +111,56 @@ main {
 .mess-hero-banner {
     position: relative;
     width: 100%;
-    height: 380px;
+    min-height: 480px;
     overflow: hidden;
     margin-bottom: -40px;
+    display: flex;
 }
 
 .mess-hero-banner img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
     display: block;
     filter: brightness(0.4) saturate(1.2);
 }
 
 .mess-hero-overlay {
-    position: absolute;
-    inset: 0;
+    position: relative;
+    width: 100%;
     background: linear-gradient(
         to bottom,
-        rgba(10, 10, 12, 0.1) 0%,
-        rgba(10, 10, 12, 0.8) 100%
+        rgba(10, 10, 12, 0.4) 0%,
+        rgba(10, 10, 12, 0.85) 100%
     );
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    padding: 24px;
+    padding: 60px 0;
+}
+
+.hero-content-wrapper {
+    width: 100%;
+    max-width: 1240px;
+    padding: 0 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    z-index: 2;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 580px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
 }
 
 .hero-badge {
@@ -180,7 +203,7 @@ main {
     to { opacity: 1; transform: translateY(0); }
 }
 
-.mess-hero-overlay h1 {
+.hero-content h1 {
     font-size: clamp(2.5rem, 5vw, 4rem);
     color: #ffffff;
     margin-bottom: 12px;
@@ -190,139 +213,137 @@ main {
     text-shadow: 0 10px 30px rgba(0,0,0,0.5);
     animation: fadeInDown 0.8s ease-out 0.1s forwards;
     opacity: 0;
+    text-align: left;
 }
 
-.mess-hero-overlay p {
+.hero-content p {
     color: rgba(255, 255, 255, 0.9);
     font-size: clamp(1rem, 1.5vw, 1.15rem);
     max-width: 540px;
     line-height: 1.6;
     animation: fadeInDown 0.8s ease-out 0.2s forwards;
     opacity: 0;
+    text-align: left;
 }
 
 /* ================================================================
-   PARENTS PROMO SECTION
+   HERO PROMO CARD (PARENTS OFFER)
    ================================================================ */
-.parents-promo-section {
-    padding: 60px 20px 0;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.parents-promo-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(212, 175, 55, 0.2);
-    border-radius: 20px;
-    padding: 32px 40px;
-    display: flex;
-    align-items: center;
-    gap: 24px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+.hero-promo-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 24px;
+    padding: 40px;
+    width: 100%;
+    max-width: 440px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    text-align: left;
+    transform: translateX(40px) scale(0.95);
+    opacity: 0;
+    animation: slideInRight 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s forwards;
     position: relative;
     overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    z-index: 10;
 }
 
-.parents-promo-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
-}
-
-.parents-promo-card::before {
+.hero-promo-card::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, transparent 100%);
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(circle at top right, rgba(212, 175, 55, 0.15), transparent 60%);
     pointer-events: none;
 }
 
-[data-theme="dark"] .parents-promo-card {
-    background: rgba(30, 30, 30, 0.6);
-    border: 1px solid rgba(212, 175, 55, 0.15);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+@keyframes slideInRight {
+    0% { opacity: 0; transform: translateX(40px) scale(0.95); }
+    100% { opacity: 1; transform: translateX(0) scale(1); }
 }
 
-.promo-icon {
-    font-size: 3rem;
-    line-height: 1;
-    flex-shrink: 0;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
-}
-
-.promo-content {
-    flex-grow: 1;
-}
-
-.promo-content h2 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text-dark);
-    margin-bottom: 8px;
-    line-height: 1.3;
-}
-
-[data-theme="dark"] .promo-content h2 {
-    color: var(--text-white);
-}
-
-.highlight-free {
-    color: var(--accent-color);
-    font-size: 1.1em;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+.hero-promo-badge {
+    display: inline-block;
+    font-size: 0.75rem;
     font-weight: 800;
-}
-
-.promo-content p {
-    font-size: 1rem;
-    color: var(--text-light);
-    line-height: 1.6;
-    margin: 0;
-    max-width: 600px;
-}
-
-.promo-btn {
-    flex-shrink: 0;
-    padding: 14px 28px;
+    color: var(--accent-color);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    background: rgba(212, 175, 55, 0.15);
+    padding: 6px 12px;
     border-radius: 99px;
+}
+
+.hero-promo-card h2 {
+    font-size: 2rem;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    font-weight: 700;
+}
+
+.highlight-free-large {
+    font-size: 4rem;
+    font-weight: 900;
+    display: block;
+    margin-top: 4px;
+    background: linear-gradient(135deg, var(--accent-color), #fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 10px rgba(212, 175, 55, 0.4));
+    line-height: 1;
+}
+
+.hero-promo-card p {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+.hero-promo-btn {
+    display: inline-block;
+    padding: 14px 32px;
     background: var(--accent-color);
     color: #111;
-    font-weight: 600;
+    font-size: 1.05rem;
+    font-weight: 700;
+    border-radius: 99px;
     text-decoration: none;
     transition: all 0.3s ease;
-    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
     position: relative;
     z-index: 2;
 }
 
-.promo-btn:hover {
+.hero-promo-btn:hover {
     background: var(--accent-hover);
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+    color: #000;
 }
 
-@media (max-width: 768px) {
-    .parents-promo-section {
-        padding: 40px 20px 0;
-    }
-    .parents-promo-card {
+@media (max-width: 900px) {
+    .hero-content-wrapper {
         flex-direction: column;
+        justify-content: center;
         text-align: center;
-        padding: 24px;
-        gap: 16px;
+        margin-top: 40px;
+        padding-bottom: 40px;
     }
-    .promo-content p {
-        margin: 0 auto;
+    .hero-content {
+        align-items: center;
+        text-align: center;
+        margin-bottom: 20px;
     }
-    .promo-btn {
-        width: 100%;
-        margin-top: 8px;
+    .hero-content h1, .hero-content p {
+        text-align: center;
+    }
+    .hero-promo-card {
+        max-width: 100%;
+        text-align: center;
+        padding: 40px 20px;
     }
 }
 
